@@ -23,10 +23,10 @@ body {
     padding-right: 40px;
 }
 
-h1 {
-    padding: none;
-    margin: 0;
-    font-family: Goldman, roboto;
+.left-hand, .right-hand {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
 }
 
 button {
@@ -54,6 +54,6 @@ button {
     border: 1px solid #8facca;
 }
 
-.etched {
+.etched, .normal-mode {
     background-color: #6b85a0;
 }
