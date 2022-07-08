@@ -47,6 +47,27 @@ button {
     align-items: center;
 }
 
+#slider {
+    -webkit-appearance: none; 
+    appearance: none;
+    background: #e7baba;
+    height: 18px;
+}
+
+#slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: rgb(234, 215, 215);
+    width: 15px; /* Set a specific slider handle width */
+    height: 15px; /* Slider handle height */
+    border-radius: 50px;
+    cursor: pointer; 
+}
+
+.pixel-display {
+    font-family: Goldman, roboto;
+}
+
 .container {
     margin: auto;
     max-width: 640px;
