@@ -41,19 +41,24 @@ button {
     border-style: solid;
 }
 
+.pixel-slider {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .container {
     margin: auto;
-    width: 640px;
-    height: 640px;
-    border: 10px solid #89a8c5;
+    max-width: 640px;
+    max-height: 640px;
     background-color: #d3d0db;
 }
 
 .container div {
     float: left;
-    border: 1px solid #8facca;
+    border: 1px solid #a9bacb;
 }
 
-.etched, .normal-mode {
+.normal-mode {
     background-color: #6b85a0;
 }

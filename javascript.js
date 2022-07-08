@@ -1,8 +1,16 @@
 const container = document.querySelector('.container');
 const pixelButton = document.querySelector('.size-change');
+const pixelSlider = document.getElementById('slider');
+const pixelDisplay = document.querySelector('.pixel-display');
 const normalButton = document.querySelector('.normal-mode');
 const randomButton = document.querySelector('.random-mode');
 const resetButton = document.querySelector('.reset');
+
+pixelDisplay.textContent = pixelSlider.value + " x " + pixelSlider.value; 
+
+function round(n) {
+    return Math.round(n * 100) / 100;
+}
 
 function applyHover(e, theme) {
     if (theme == "black") {
@@ -10,13 +18,12 @@ function applyHover(e, theme) {
     }
     if (theme == "colourful") {
         e.style.backgroundColor = getRandomColour();
-        e.classList.remove("etched");
     }
 }
 
 function createGrid(n, theme) {
     let total = n*n;
-    let side = 640/n-2;
+    let side = round(640/n-2);
     for (let i=0; i<total; i++) {
         let square = document.createElement('div');
         container.appendChild(square);
@@ -47,28 +54,17 @@ function changeTheme(theme) {
     }
 }
 
-pixelButton.addEventListener('click', () => {
+pixelSlider.oninput = function() {
     container.textContent = "";
-    let pixels = prompt("How many pixels per side?");
-    if (!Number(pixels) && pixels != "0") {
-        alert("You did not enter a number.");
-        createGrid(16);
+    pixelNumber = this.value;
+    pixelDisplay.textContent = pixelNumber + " x " + pixelNumber;
+    if (!colour) {
+        createGrid(pixelNumber, "black");
     }
-    else {
-        let n = Number(pixels);
-
-        if (n > 100 || n < 1) {
-            alert("You must enter a number between 1 and 100!");
-            createGrid(16, "black");
-        }
-        else if (Number(pixels) < 100 && !colour) {
-            createGrid(n, "black");
-        }
-        else if (Number(pixels) < 100 && colour) {
-            createGrid(n, "colourful");
-        }
+    else if (colour) {
+        createGrid(pixelNumber, "colourful");
     }
-})
+}
 
 resetButton.addEventListener('click', () => {
     const pixels = container.children;

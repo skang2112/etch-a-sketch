@@ -12,7 +12,11 @@
 <body>
     <div class = "content">
         <div class = "left-hand">
-            <button class = "size-change">Change pixel count?</button>
+            <div class="pixel-slider">
+                <input type="range" min="1" max="100" value="16" class="slider" id="slider">
+                <div class="pixel-display"></div>
+            </div>
+            
             <button class = "reset">Reset</button>
         </div>
 
@@ -22,9 +26,7 @@
             <button class = "normal-mode"></button>
             <button class = "random-mode">Psychedelic?</button>
         </div>
-
     </div>
-
 
 </body>
 </html>
